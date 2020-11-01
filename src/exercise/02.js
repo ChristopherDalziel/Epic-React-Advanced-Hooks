@@ -10,19 +10,15 @@ import {
   PokemonErrorBoundary,
 } from '../pokemon'
 
-// 🐨 this is going to be our generic asyncReducer
 function asyncReducer(state, action) {
   switch (action.type) {
     case 'pending': {
-      // 🐨 replace "pokemon" with "data"
       return { status: 'pending', data: null, error: null }
     }
     case 'resolved': {
-      // 🐨 replace "pokemon" with "data" (in the action too!)
       return { status: 'resolved', data: action.data, error: null }
     }
     case 'rejected': {
-      // 🐨 replace "pokemon" with "data"
       return { status: 'rejected', data: null, error: action.error }
     }
     default: {
@@ -53,16 +49,11 @@ function useAsync(asyncCallback, initialState, dependencies) {
         dispatch({ type: 'rejected', error })
       },
     )
-    // 🐨 you'll accept dependencies as an array and pass that here.
-    // 🐨 because of limitations with ESLint, you'll need to ignore
-    // the react-hooks/exhaustive-deps rule. We'll fix this in an extra credit.
   }, dependencies)
   return state
 }
 
 function PokemonInfo({ pokemonName }) {
-  // 🐨 move both the useReducer and useEffect hooks to a custom hook called useAsync
-  // here's how you use it:
   const state = useAsync(
     () => {
       if (!pokemonName) {
