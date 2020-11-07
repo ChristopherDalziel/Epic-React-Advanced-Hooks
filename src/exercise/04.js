@@ -33,7 +33,7 @@ function SlooooowSibling() {
   // how it impacts interactivity of the page before updates.
   React.useLayoutEffect(() => {
     // increase this number to see a more stark difference
-    sleep(1000)
+    sleep(500)
   })
   return null
 }
