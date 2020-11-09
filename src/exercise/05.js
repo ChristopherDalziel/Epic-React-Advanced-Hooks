@@ -3,8 +3,6 @@
 
 import React from 'react'
 
-// 🐨 wrap this in a React.forwardRef and accept `ref` as the second argument
-
 const MessagesDisplay = React.forwardRef(function MessagesDisplay({ messages }, ref,) {
   const containerRef = React.useRef()
   React.useLayoutEffect(() => {
@@ -32,8 +30,6 @@ const MessagesDisplay = React.forwardRef(function MessagesDisplay({ messages }, 
     </div>
   )
 })
-
-// MessagesDisplay = React.forwardRef = (MessagesDisplay)
 
 function App() {
   const messageDisplayRef = React.useRef()
